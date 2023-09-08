@@ -1,5 +1,10 @@
 .App {
   text-align: center;
+  color: white;
+  background: #0F2027;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #2C5364, #203A43, #0F2027);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #2C5364, #203A43, #0F2027); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
 }
 
 .App-logo {
@@ -7,32 +12,58 @@
   pointer-events: none;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
 .App-header {
-  background-color: #282c34;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.dark-glassy { 
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+  background: rgb(0, 0, 0, 0.3);
+  color: rgb(255, 255, 255, 0.7)
+  
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.frontpage-form {
+  margin: 3rem auto;
+  align-items: center;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+
+}
+
+.frontpage-form .form-control {
+  width: auto;
+  text-align: center;
+
+  margin: 0 10px 10px;
+  padding: 0;
+  padding-bottom: 4px;
+  background: none;
+  color: white;
+  border: none;
+  border-radius: 0%;
+  border-bottom: dashed 2px;
+}
+
+.frontpage-form .form-control:focus{
+  box-shadow: none;
+
+}
+
+
+.frontpage-form .form-control::placeholder {
+  color: white;
+  opacity: 60%;
+  text-align: center;
+}
+
+.job-search-row {
+
 }
