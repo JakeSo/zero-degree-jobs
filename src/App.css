@@ -7,18 +7,33 @@
 
 }
 
+h1,h2,h3,h4,h5 {
+  font-family: "Nunito", sans-serif;
+}
+
+
+
 .App-logo {
   height: 40vmin;
   pointer-events: none;
 }
 
-.App-header {
-  min-height: 100vh;
+.header {
+  height: 20%;
+  min-height: 75vh;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  margin: 100px 0;
   color: white;
+  
+}
+
+.name {
+  margin-left: 5px;
+  font-family: "Nunito", sans-serif;
+  text-shadow: #0F2027;
+  font-size: 10rem;
 }
 
 .dark-glassy { 
@@ -35,6 +50,7 @@
   display: flex;
   flex-flow: row wrap;
   justify-content: center;
+  font-family: 'Nunito', sans-serif;
 
 }
 
@@ -42,7 +58,7 @@
   width: auto;
   text-align: center;
 
-  margin: 0 10px 10px;
+  margin: 0 10px;
   padding: 0;
   padding-bottom: 4px;
   background: none;
@@ -64,6 +80,15 @@
   text-align: center;
 }
 
-.job-search-row {
+.frontpage-form .btn {
+  color: white;
+  margin: auto 0;
+}
 
+.job-listings {
+  padding: 5% 10%;
+  width: 100%;
+  background-color: rgb(255, 255, 255, 0.5);
+  text-align: start;
+  color: #0F2027;
 }

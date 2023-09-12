@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 // You can import your CSS styles here
-import { Container, Row, Col, Navbar, Nav, Form, Button } from 'react-bootstrap';
-
+import { Container, Row, Col, Form, Button } from 'react-bootstrap';
+import CustomNavbar from './Navbar';
 import './App.css';
 
 function App() {
@@ -22,24 +22,14 @@ function App() {
 
   return (
     <div className="App">
-      <Navbar bg="navbar dark-glassy" data-bs-theme="dark" expand="lg">
-        <Container>
-          <Navbar.Toggle aria-controls="basic-navbar-nav" />
-          <Navbar.Collapse id="basic-navbar-nav" className='justify-content-center'>
-            <Nav className="ml-auto">
-              <Nav.Link href="#home">Home</Nav.Link>
-              <Nav.Link href="#jobs">Job Listings</Nav.Link>
-              <Nav.Link href="#profile">Your Profile</Nav.Link>
-            </Nav>
-          </Navbar.Collapse>
-        </Container>
-      </Navbar>
-
+      
+      <CustomNavbar />
       <Container fluid>
-        <Container className="App-header" fluid >
-          <h1>Welcome to SkillSell</h1>
+        <Container className="header" fluid >
+          <h1 className='name'>zero°</h1>
+          <h3 className='my-5'>Connecting Talent, Ignoring Degrees</h3>
           <Form inline className='frontpage-form' onSubmit={handleFormSubmit}>
-                <Form.Label htmlFor="jobType">
+                <Form.Label className='my-0' htmlFor="jobType">
                   I am looking for a
                 </Form.Label>
                 <Form.Control
@@ -49,7 +39,7 @@ function App() {
                   value={jobType}
                   onChange={(e) => setJobType(e.target.value)}
                 />
-                <Form.Label htmlFor="jobType">
+                <Form.Label className='my-0' htmlFor="jobType">
                   job in
                 </Form.Label>
                 <Form.Control
@@ -59,25 +49,15 @@ function App() {
                   value={location}
                   onChange={(e) => setLocation(e.target.value)}
                 />
-                <Button variant="primary" type="submit">
+                <Button variant="outline-secondary" type="submit">
                   Search
                 </Button>
           </Form>
         </Container>
-
         <Row>
-          <Col>
-            {/* Replace this placeholder with your job listings component */}
             <section className="job-listings">
-              <h2>Latest Job Listings</h2>
+              <h2>Just listed</h2>
             </section>
-          </Col>
-          <Col>
-            {/* Replace this placeholder with your user profile component */}
-            <section className="user-profile">
-              <h2>Your Profile</h2>
-            </section>
-          </Col>
         </Row>
       </Container>
 
