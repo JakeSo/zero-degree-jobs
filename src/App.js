@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 // You can import your CSS styles here
-import { Container, Row, Col, Form, Button } from 'react-bootstrap';
+import { Container, Row, Form, Button } from 'react-bootstrap';
 import CustomNavbar from './Navbar';
+import JobCard from './JobCard';
 import './App.css';
 
 function App() {
@@ -18,7 +19,12 @@ function App() {
   };
 
   const exampleJobs = ["Web Developer", "Data Analyst", "Customer Service", "Social Media Manager"];
-
+  const dummyJob = {
+    id: 1,
+    title: "Developer",
+    location: "Charlotte, NC",
+    company: "Google"
+  }
 
   return (
     <div className="App">
@@ -26,8 +32,8 @@ function App() {
       <CustomNavbar />
       <Container fluid>
         <Container className="header" fluid >
-          <h1 className='name'>zero°</h1>
-          <h3 className='my-5'>Connecting Talent, Ignoring Degrees</h3>
+          <h1 className='name'>&nbsp;zero°</h1>
+          <h3 className='slogan'>Connecting Talent, <strong>Ignoring Degrees</strong></h3>
           <Form inline className='frontpage-form' onSubmit={handleFormSubmit}>
                 <Form.Label className='my-0' htmlFor="jobType">
                   I am looking for a
@@ -56,7 +62,10 @@ function App() {
         </Container>
         <Row>
             <section className="job-listings">
-              <h2>Just listed</h2>
+              <h2>New postings</h2>
+              <Row class='jobs'>
+                <JobCard key={dummyJob.id} job={dummyJob}/>
+              </Row>
             </section>
         </Row>
       </Container>
