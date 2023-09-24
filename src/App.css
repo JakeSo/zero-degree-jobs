@@ -1,15 +1,37 @@
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+    /* Move the element upward */
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+    /* Reset position */
+  }
+}
+
 .App {
   text-align: center;
   color: white;
-  background: #0F2027;  /* fallback for old browsers */
-  background: -webkit-linear-gradient(to right, #2C5364, #203A43, #0F2027);  /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(to right, #2C5364, #203A43, #0F2027); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  background: #0F2027;
+  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #2C5364, #203A43, #0F2027);
+  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #2C5364, #203A43, #0F2027);
+  /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 
 }
 
-h1,h2,h3,h4,h5 {
+h1,
+h2,
+h3,
+h4,
+h5 {
   font-family: "Raleway", sans-serif;
   font-weight: 600;
+  margin: 3% 0;
 }
 
 .slogan {
@@ -17,6 +39,7 @@ h1,h2,h3,h4,h5 {
   margin: 50px auto;
 
 }
+
 .App-logo {
   height: 40vmin;
   pointer-events: none;
@@ -28,9 +51,9 @@ h1,h2,h3,h4,h5 {
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin: 100px 0;
+  margin: 50px 0 100px;
   color: white;
-  
+
 }
 
 .name {
@@ -39,12 +62,11 @@ h1,h2,h3,h4,h5 {
   font-weight: 400;
 }
 
-.dark-glassy { 
+.dark-glassy {
   -webkit-backdrop-filter: blur(10px);
   backdrop-filter: blur(10px);
   background: rgb(0, 0, 0, 0.3);
   color: rgb(255, 255, 255, 0.7)
-  
 }
 
 .frontpage-form {
@@ -61,7 +83,7 @@ h1,h2,h3,h4,h5 {
 .frontpage-form .form-control {
   width: auto;
   text-align: center;
-
+  font-size: x-large;
   margin: 0 10px;
   padding: 0;
   padding-bottom: 4px;
@@ -72,7 +94,7 @@ h1,h2,h3,h4,h5 {
   border-bottom: dashed 2px;
 }
 
-.frontpage-form .form-control:focus{
+.frontpage-form .form-control:focus {
   box-shadow: none;
 
 }
@@ -89,26 +111,43 @@ h1,h2,h3,h4,h5 {
   margin: auto 0;
 }
 
-.job-listings {
-  padding: 5% 10%;
+.content {
   width: 100%;
   background-color: rgb(255, 255, 255, 0.7);
+}
+
+.job-listings {
+  padding: 2% 5%;
+  width: 100%;
   text-align: start;
   color: #0F2027;
 }
 
 .jobCard {
-  width: auto;
   background-color: #203A43;
-  /* opacity: 75%; */
-  font-family: 'Arial', sans-serif;
+  font-family: 'Raleway', sans-serif;
   text-align: center;
+  color: lightgrey;
+  flex: 0 0 auto;
+  padding: 20px 0;
+  height: auto;
+  transition: .3s transform cubic-bezier(.155,1.105,.295,1.12),.3s box-shadow,.3s -webkit-transform cubic-bezier(.155,1.105,.295,1.12);
 }
 
 .jobCard .card-title {
   font-weight: 600;
+  word-wrap: normal;
 }
 
 .jobCard .card-subtitle {
   margin: 5px 0 10px;
+}
+
+.jobCard:hover {
+  transform: scale(1.05);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, .12), 0 4px 8px rgba(0, 0, 0, .06);
+}
+
+.job-link {
+  text-decoration: none;
 }
