@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
-import { Button, Card, Col, Container } from "react-bootstrap"
-import { JobModal } from './JobModal'
+import {  Card, Col } from "react-bootstrap"
+import JobModal from './JobModal'
 
 function JobCard({ job }) {
     const [showModal, setShowModal] = useState(false);
@@ -24,7 +24,7 @@ function JobCard({ job }) {
                     </Card.Body>
                 </Card>
             </Col>
-            <JobModal show={showModal} job={job} onHide={handleCloseModal}/>
+            <JobModal show={showModal} jobId={job.job_id} onHide={handleCloseModal}/>
         </>
     )
 }

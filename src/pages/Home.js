@@ -1,12 +1,39 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 // You can import your CSS styles here
 import { Container, Row, Form, Button } from 'react-bootstrap';
-import JobCard from '../JobCard';
+import JobCard from '../components/JobCard';
+import supabase from '../util/supabase'
 
 function Home() {
 
+  const [jobListings, setJobListings] = useState([]);
   const [jobType, setJobType] = useState('');
   const [location, setLocation] = useState('');
+
+  useEffect(() => {
+    async function fetchNewJobListings() {
+      try {
+        const { data, error } = await supabase
+          .from('jobs')
+          .select('*')
+          .gte('date_posted', new Date(new Date() - 30 * 24 * 60 * 60 * 1000).toISOString())
+          .order('date_posted', { ascending: false });
+
+        if (error) {
+          console.error('Error fetching new job listings:', error);
+        } else {
+          setJobListings(data);
+          console.log('New job listings:\n' + JSON.stringify(data));
+        }
+      } catch (error) {
+        console.error('Error fetching new job listings:', error);
+      }
+    }
+
+    // Fetch new job listings when the component mounts
+    fetchNewJobListings();
+  }, []);
+  
 
 
 
@@ -18,19 +45,13 @@ function Home() {
   };
 
   const exampleJobs = ["Web Developer", "Data Analyst", "Customer Service", "Social Media Manager"];
-  const dummyJob = {
-    id: 1,
-    title: "Senior Data Analyst",
-    location: "Charlotte, NC",
-    company: "Google"
-  }
 
   return (
     <Container>
       <Container className="header" fluid >
         <h1 className='name'>&nbsp;zero°</h1>
         <h3 className='slogan'>Connecting Talent, <strong>Ignoring Degrees</strong></h3>
-        <Form inline className='frontpage-form' onSubmit={handleFormSubmit}>
+        <Form className='frontpage-form' onSubmit={handleFormSubmit}>
           <Form.Label className='my-0' htmlFor="jobType">
             I am looking for a
           </Form.Label>
@@ -60,7 +81,9 @@ function Home() {
         <Container className="job-listings">
           <h2>New postings</h2>
           <Row class='jobs'>
-            <JobCard key={dummyJob.id} job={dummyJob} />
+            {jobListings.map((job) =>
+              <JobCard key={job.id} job={job} />
+            )}
           </Row>
         </Container>
       </Container>

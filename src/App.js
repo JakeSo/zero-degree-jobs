@@ -1,8 +1,7 @@
 import React from 'react';
-import { createClient } from '@supabase/supabase-js';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import { Container } from 'react-bootstrap'; 
-import CustomNavbar from './Navbar';
+import CustomNavbar from './components/Navbar';
 import Home from './pages/Home';
 import './App.css';
 
