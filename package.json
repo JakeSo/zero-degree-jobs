@@ -1,5 +1,6 @@
 {
-  "name": "job-site",
+  "homepage":"https://jakeso.github.io/job-site",
+  "name": "zero-degrees",
   "version": "0.1.0",
   "homepage": "https://jakeso.github.io/job-site",
   "private": true,
