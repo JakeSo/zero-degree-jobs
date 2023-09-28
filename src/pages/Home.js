@@ -15,7 +15,7 @@ function Home() {
       try {
         const { data, error } = await supabase
           .from('jobs')
-          .select('*')
+          .select('job_id,title,location,company')
           .gte('date_posted', new Date(new Date() - 30 * 24 * 60 * 60 * 1000).toISOString())
           .order('date_posted', { ascending: false });
 

@@ -38,8 +38,8 @@ const JobModal = ({ show, onHide, jobId }) => {
         {jobData ? (
           <div>
             <h4>Description:</h4>
-            <p>{jobData.description}</p>
-            <p>Salary: {jobData.salary}</p>
+            <p dangerouslySetInnerHTML={{ __html: jobData.description.replaceAll('\n', '<br />') }}className='px-3 text-justify'></p>
+            {jobData.salary ? (<p>Salary: {jobData.salary}</p>) : null }
           </div>
         ) : (
           <p>Loading job data...</p>
