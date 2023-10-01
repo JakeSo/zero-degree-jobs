@@ -1,74 +1,93 @@
-<<<<<<< HEAD
-# Getting Started with Create React App
+# Zero° Job Board
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Zero° Job Board is a web application that connects job seekers with job opportunities, focusing on skills and experience rather than formal degrees.
 
-## Available Scripts
+## Table of Contents
 
-In the project directory, you can run:
+- [Features](#features)
+  - [For Job Seekers](#for-job-seekers)
+  - [For Employers](#for-employers)
+- [Technologies Used](#technologies-used)
+- [Getting Started](#getting-started)
+  - [Prerequisites](#prerequisites)
+  - [Installation](#installation)
+- [Usage](#usage)
+- [Contributing](#contributing)
+- [License](#license)
 
-### `npm start`
+## Features
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+### For Job Seekers
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+- Search for job opportunities based on job type and location.
+- View detailed job listings, including job descriptions, company information, and required skills.
+- Create a user profile to save favorite job listings and track application progress.
+- Discover new job postings that match your interests and skills.
 
-### `npm test`
+### For Employers
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- Post job listings and reach a diverse pool of talented individuals.
+- Manage applications from potential candidates.
+- Easily update and remove job listings as positions are filled.
+- Find candidates who are passionate about your industry and focused on skills.
 
-### `npm run build`
+## Technologies Used
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- **Frontend**: React, React Bootstrap, CSS
+- **Backend**: Supabase
+- **Database**: PostgreSQL
+- **Hosting**: GitHub Pages
+- **Version Control**: Git, GitHub
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Getting Started
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### Prerequisites
 
-### `npm run eject`
+Before you can run the Zero° Job Listings web application, ensure you have the following prerequisites installed:
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+- [Node.js](https://nodejs.org/): JavaScript runtime environment.
+- [npm](https://www.npmjs.com/) or [Yarn](https://yarnpkg.com/): Package managers for Node.js projects.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### Installation
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+Follow these steps to get the project up and running:
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+1. Clone the repository:
 
-## Learn More
+   ```bash
+   git clone https://github.com/your-username/zero-degree-jobs.git
+    ```
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+2. Navigate to the project directory:
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+    ```bash
+    cd zero-degree-job-listings
+    ```
 
-### Code Splitting
+3. Install the dependencies:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+    ```bash
+    npm install
+    # or
+    yarn install
+    ```
+4. Start the development server:
 
-### Analyzing the Bundle Size
+    ```bash
+    npm start
+    # or 
+    yarn start
+    ```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+The application should now be accessible at `https//localhost:3000`
 
-### Making a Progressive Web App
+## Usage
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+- Visit the website and explore job listings by searching for job type and location.
+- Click on a job listing to view more details.
+- Create a user profile to save your favorite job listings.
+- If you're an employer, post new job listings and manage applications from potential candidates.
 
-### Advanced Configuration
+## Contributing 
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
-=======
-# job-site
->>>>>>> 56e2ba93e2c7bfd6354499ea6007e77968938625
+We welcome contributions from the community. If you have any suggestions, bug reports, or feature requests, please create an issue on this repository. If you'd like to contribute code, fork the repository and create a pull request.

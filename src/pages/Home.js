@@ -47,9 +47,9 @@ function Home() {
   const exampleJobs = ["Web Developer", "Data Analyst", "Customer Service", "Social Media Manager"];
 
   return (
-    <Container>
+    <Container fluid>
       <Container className="header" fluid >
-        <h1 className='name'>&nbsp;zero°</h1>
+        <h1 className='name'>zero°</h1>
         <h3 className='slogan'>Connecting Talent, <strong>Ignoring Degrees</strong></h3>
         <Form className='frontpage-form' onSubmit={handleFormSubmit}>
           <Form.Label className='my-0' htmlFor="jobType">
@@ -87,10 +87,6 @@ function Home() {
           </Row>
         </Container>
       </Container>
-
-      <footer>
-        {/* Footer content */}
-      </footer>
     </Container>
   );
 }

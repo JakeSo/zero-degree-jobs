@@ -1,8 +1,7 @@
 {
-  "homepage":"https://jakeso.github.io/job-site",
-  "name": "zero-degrees",
+  "homepage":"https://jakeso.github.io/zero-degree-jobs",
+  "name": "zero-degree-jobs",
   "version": "0.1.0",
-  "homepage": "https://jakeso.github.io/job-site",
   "private": true,
   "dependencies": {
     "@supabase/supabase-js": "^2.36.0",
