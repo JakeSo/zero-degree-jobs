@@ -7,16 +7,16 @@ function CustomNavbar() {
 
     const currentPage = useLocation().pathname;
 
-    return <Navbar Fill bg="navbar dark-glassy" data-bs-theme="dark" expand="lg">
+    return <Navbar bg="navbar dark-glassy" data-bs-theme="dark" expand="lg">
         <Container fluid>
             <Navbar.Toggle aria-controls="basic-navbar-nav" />
             <Navbar.Collapse id="basic-navbar-nav">
-                <Nav className='mx-auto'>
+                <Nav className='mainNav'>
                     <Nav.Link active={currentPage==="/About"} as={Link} href="/About">About</Nav.Link>
                     <Nav.Link active={currentPage==="/Search"} as={Link} href="/Search">Search</Nav.Link>
                     <Nav.Link active={currentPage==="/Profile"} as={Link} href="/Profile">Your Profile</Nav.Link>
                 </Nav>
-                <Nav className='end-0 position-absolute'>
+                <Nav className='employerLink'>
                     <Nav.Link active={currentPage==="/Employer/"} as={Link} href="/Employer">Employer</Nav.Link>
                 </Nav>
             </Navbar.Collapse>

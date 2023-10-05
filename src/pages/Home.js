@@ -80,9 +80,9 @@ function Home() {
       <Container fluid className='content'>
         <Container className="job-listings">
           <h2>New postings</h2>
-          <Row class='jobs'>
+          <Row className='jobs'>
             {jobListings.map((job) =>
-              <JobCard key={job.id} job={job} />
+              <JobCard key={job.job_id} job={job} />
             )}
           </Row>
         </Container>
