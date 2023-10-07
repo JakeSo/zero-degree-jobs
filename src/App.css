@@ -20,6 +20,37 @@ html, body {
   width: 10rem;
 }
 
+.navbar .mainNav {
+  width: 100%;
+  margin: 0 auto;
+  justify-content: center
+}
+
+.navbar .employerLink {
+  position: absolute;
+  right: 0;
+  justify-content: end;
+  border-top: none;
+}
+.navbar-collapse.show {
+  justify-content: center;
+}
+
+.navbar-collapse.show .mainNav,  .navbar-collapse.show .employerLink,
+.navbar-collapse.collapsing .mainNav, .navbar-collapse.collapsing .employerLink {
+  position: relative;
+  justify-content: center;
+  width:  -moz-fit-content;
+  width: fit-content;
+  padding: 0;
+  margin: 0 auto;
+}
+
+.navbar-collapse.show .employerLink, .navbar-collapse.collapsing .employerLink {
+  border-top: 1px solid #2C5364;
+  border-width: 500%;
+}
+
 .App {
   position: absolute;
   width: 100%;
