@@ -14,6 +14,16 @@
 html, body {
   height: 100%;
   width: 100%;
+  font-family: 'Nunito', Arial, sans-serif;
+}
+
+ul {
+  list-style-position: inside;
+  padding: 0;
+}
+
+ul li {
+  margin: 5px 0;
 }
 
 .nav-link {
@@ -81,6 +91,15 @@ h5 {
   font-weight: 600;
 }
 
+button, .btn {
+  font-family: 'Nunito', sans-serif;
+}
+
+.btn-outline-secondary {
+  color: white !important;
+  border-color: white !important;
+}
+
 .slogan {
   font-weight: 400;
 }
@@ -94,17 +113,21 @@ h5 {
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin: 50px 0;
+  margin: 5rem auto;
   color: white;
 
 }
 
 .name {
   padding-left: 2rem;
-  margin: 50px 0;
+  margin: 3rem 0;
   font-family: "Nunito", sans-serif;
   font-size: 10rem;
   font-weight: 400;
+}
+
+.nunito {
+  font-family: "Nunito", sans-serif;
 }
 
 .dark-glassy {
@@ -115,9 +138,11 @@ h5 {
 }
 
 .why {
-  margin: 5rem auto;
+  margin: 2rem auto;
+  padding: 24px 10px;
   width: 80%;
-  padding: 50px;
+  min-height: 250px;
+  text-align: center;
   border-radius: 0.375rem;
   columns: auto 2;
   color: white;
@@ -177,6 +202,10 @@ h5 {
   width: 100%;
   text-align: start;
   color: #0F2027;
+}
+
+.jobs {
+  margin: 20px 0;
 }
 
 .jobCard {
