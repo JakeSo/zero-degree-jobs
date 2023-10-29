@@ -14,16 +14,22 @@
 html, body {
   height: 100%;
   width: 100%;
-  font-family: 'Nunito', Arial, sans-serif;
+  font-family: 'Raleway', Arial, sans-serif;
+  font-weight: 400;
 }
 
+
 ul {
-  list-style-position: inside;
+  list-style-type: circle;
   padding: 0;
 }
 
 ul li {
   margin: 5px 0;
+}
+
+.bold {
+  font-weight: bold;
 }
 
 .nav-link {
@@ -88,6 +94,10 @@ h3,
 h4,
 h5 {
   font-family: "Raleway", sans-serif;
+  /* font-weight: 600; */
+}
+
+h1 {
   font-weight: 600;
 }
 
@@ -109,6 +119,7 @@ button, .btn {
   pointer-events: none;
 }
 
+
 .header {
   display: flex;
   flex-direction: column;
@@ -119,12 +130,17 @@ button, .btn {
 }
 
 .name {
+  font-family: "Nunito", sans-serif;
+  font-weight: 700;
+}
+
+.header .name {
   padding-left: 2rem;
   margin: 3rem 0;
-  font-family: "Nunito", sans-serif;
   font-size: 10rem;
-  font-weight: 400;
+
 }
+
 
 .nunito {
   font-family: "Nunito", sans-serif;
@@ -138,8 +154,9 @@ button, .btn {
 }
 
 .why {
+  font-family: 'Raleway', sans-serif;
   margin: 2rem auto;
-  padding: 24px 10px;
+  padding: 24px;
   width: 80%;
   min-height: 250px;
   text-align: center;
@@ -147,6 +164,32 @@ button, .btn {
   columns: auto 2;
   color: white;
 }
+
+
+.why a {
+  color: white;
+  text-decoration: none;
+}
+
+.why a:hover {
+  color: white;
+  text-decoration: underline; 
+  opacity: 90%;
+}
+
+
+.stats {
+  text-align: left;
+}
+
+.stats a {
+  opacity: 20%;
+}
+
+.stats li {
+  font-size: 18px;
+}
+
 
 .frontpage-form {
   margin: 5rem auto;

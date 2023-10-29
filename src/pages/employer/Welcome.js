@@ -11,28 +11,31 @@ function Welcome() {
           <h3 className="slogan">Unlock the Potential of Diverse Talent</h3>
         </Col>
       </Row>
-
+      <Row className="why dark-glassy">
+        <h3 className='my-auto'><span className='name fs-1'>zero&deg;</span> is a job board that connects employers with qualified candidates, regardless of their education.</h3>
+        <h3>We put skills before schools to better match dependable candidates to open jobs.</h3>
+      </Row>
       <Row className="why dark-glassy">
         <Col className='my-auto' lg={4}>
-          <h1>Why Go <span className='nunito fw-light' > <br /> zero&deg;</span>?</h1>
+          <h1>Why Go <span className='name'><br />zero&deg;</span>?</h1>
 
         </Col>
         <Col lg={8}>
-          <ul className='my-4 text-start'>
-            <li>In 2021, The U.S. Census Bureau reported 62.1% of adults didn't have a college degree.</li>
-            <li>According to the Bureau of Labor Statistics, nearly 60% of all jobs in the U.S. economy require higher education.</li>
-            <li>50% of adults without degrees want more education, and 53% said they were likely or very likely to enroll in some type of course or training in the next five years.</li>
+          <Container fluid>
+          <ul className='my-4 stats'>
+            <li>In 2021, The U.S. Census Bureau reported <span className='nunito bold'>55%</span> of adults didn't have a college degree.<sup className='source-link'><a href='https://www.census.gov/data/tables/2021/demo/educational-attainment/cps-detailed-tables.html'>1</a></sup></li>
+            <li>Nearly <span className='nunito bold'>70%</span> of all jobs in the U.S. economy require higher education.<sup className='source-link'><a href='https://opportunityatwork.org/thepaperceiling/'>2</a></sup></li>
           </ul>
-
-          <h5 className='my-4'>This means that there is a large and growing pool of talented and motivated workers who are eager to learn and grow!</h5>
+          </Container>
+          <h5 className='fw-bold'>This "<a href="https://opportunityatwork.org/thepaperceiling">paper ceiling</a>" prevents employers from accessing a large pool of qualified workers, leading to hiring challenges and lost productivity</h5>
         </Col>
       </Row>
 
       <Row className="why dark-glassy">
         <Col className='my-auto'>
-          <h1>Get Started</h1>
+          <h1>Shred the Paper Ceiling</h1>
           <Button className='my-3 fs-3' variant='outline-secondary'>
-            Post a job
+            Post Your Job
           </Button>
         </Col>
       </Row>
