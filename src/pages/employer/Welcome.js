@@ -34,6 +34,7 @@ function Welcome() {
       <Row className="why dark-glassy text-center">
         <Col className='my-auto'>
           <h1>Shred the Paper Ceiling</h1>
+          {/* TODO: Link login/signup page */}
           <Button className='my-3 fs-3' variant='outline-secondary'>
             Post Your Job
           </Button>
