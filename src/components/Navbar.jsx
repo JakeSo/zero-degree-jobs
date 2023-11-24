@@ -12,12 +12,12 @@ function CustomNavbar() {
             <Navbar.Toggle aria-controls="basic-navbar-nav" />
             <Navbar.Collapse id="basic-navbar-nav">
                 <Nav className='mainNav'>
-                    <Nav.Link active={currentPage==="/About"} as={Link} href="/About">About</Nav.Link>
-                    <Nav.Link active={currentPage==="/Search"} as={Link} href="/Search">Search</Nav.Link>
-                    <Nav.Link active={currentPage==="/Profile"} as={Link} href="/Profile">Your Profile</Nav.Link>
+                    <Nav.Link active={currentPage==="/About"} as={Link} to="/About">About</Nav.Link>
+                    <Nav.Link active={currentPage==="/Search"} as={Link} to="/Search">Search</Nav.Link>
+                    <Nav.Link active={currentPage==="/Profile"} as={Link} to="/Profile">Your Profile</Nav.Link>
                 </Nav>
                 <Nav className='employerLink'>
-                    <Nav.Link active={currentPage==="/Employer/"} as={Link} href="/Employer">Employer</Nav.Link>
+                    <Nav.Link active={currentPage==="/Employer/Welcome"} as={Link} to="/Employer/Welcome">Employer</Nav.Link>
                 </Nav>
             </Navbar.Collapse>
         </Container>

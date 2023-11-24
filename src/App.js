@@ -5,6 +5,7 @@ import CustomNavbar from './components/Navbar';
 import Home from './pages/Home';
 import Footer from './components/Footer';
 import './App.css';
+import Welcome from './pages/employer/Welcome';
 
 function App() {
  return (
@@ -15,7 +16,7 @@ function App() {
           <Routes>
             <Route path="/" element={<Navigate to={"/Search"} />} />
             <Route path="/Search" exact element={<Home />} />{/* Home page */}
-            {/* <Route path="/job/:id" component={JobDetail} /> Job detail page */}
+            <Route path="/Employer/Welcome" element={<Welcome />} />
           </Routes>
         </Container>
         <Footer />
