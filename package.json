@@ -1,27 +1,30 @@
 {
-  "homepage":"https://jakeso.github.io/zero-degree-jobs",
+  "homepage": "https://jakeso.github.io/zero-degree-jobs",
   "name": "zero-degree-jobs",
   "version": "0.1.0",
+  "type": "module",
   "private": true,
   "dependencies": {
     "@supabase/supabase-js": "^2.36.0",
     "@testing-library/jest-dom": "^5.17.0",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
+    "@vitejs/plugin-react": "^4.3.4",
     "bootstrap": "^5.3.2",
     "react": "^18.2.0",
     "react-bootstrap": "^2.8.0",
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.16.0",
-    "react-scripts": "5.0.1",
+    "vite": "^6.0.11",
     "web-vitals": "^2.1.4"
   },
   "scripts": {
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build",
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
+    "dev": "vite",
+    "build": "vite build",
+    "test": "vite test",
+    "serve": "vite preview",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
