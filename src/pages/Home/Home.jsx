@@ -1,40 +1,23 @@
 import React, { useState, useEffect } from 'react';
-// You can import your CSS styles here
-import { Container, Row, Form, Button } from 'react-bootstrap';
-import JobCard from '../components/JobCard';
-import supabase from '../util/supabase'
-
+import { Container, Row, Form, Button, Placeholder } from 'react-bootstrap';
+import JobCard from '../../components/JobCard/JobCard';
+import { fetchNewJobListings} from '../../util/jobUtils';
+import './Home.css';
 function Home() {
 
-  const [jobListings, setJobListings] = useState([]);
+  const [newJobs, setNewJobs] = useState([]);
   const [jobType, setJobType] = useState('');
   const [location, setLocation] = useState('');
 
   useEffect(() => {
-    async function fetchNewJobListings() {
-      try {
-        const { data, error } = await supabase
-          .from('jobs')
-          .select('job_id,title,location,company')
-          .gte('date_posted', new Date(new Date() - 30 * 24 * 60 * 60 * 1000).toISOString())
-          .order('date_posted', { ascending: false });
-
-        if (error) {
-          console.error('Error fetching new job listings:', error);
-        } else {
-          setJobListings(data);
-          console.log('New job listings:\n' + JSON.stringify(data));
-        }
-      } catch (error) {
-        console.error('Error fetching new job listings:', error);
-      }
+    async function loadJobListings() {
+      const newJobs = await fetchNewJobListings();
+      setNewJobs(newJobs);
     }
-
-    // Fetch new job listings when the component mounts
-    fetchNewJobListings();
+    loadJobListings();
   }, []);
   
-
+  const placeholders = Array.from({ length: Math.max(0, 4 - newJobs.length) });
 
 
   // Function to handle form submission (you can add your logic here)
@@ -72,7 +55,7 @@ function Home() {
             value={location}
             onChange={(e) => setLocation(e.target.value)}
           />
-          <Button variant="outline-secondary" type="submit">
+          <Button variant="outline-secondary" type="submit" size='lg'>
             Search
           </Button>
         </Form>
@@ -81,9 +64,12 @@ function Home() {
         <Container className="job-listings">
           <h2>New postings</h2>
           <Row className='jobs'>
-            {jobListings.map((job) =>
+            {newJobs.map((job) => (
               <JobCard key={job.job_id} job={job} />
-            )}
+            ))}
+            {placeholders.map((_, index) => (
+              <JobCard key={index} job={{}} />
+            ))}
           </Row>
         </Container>
       </Container>

@@ -1,6 +1,6 @@
 import React from 'react';
 import { Container, Row, Col, Button } from 'react-bootstrap';
-import '../../App.css'; // Import your existing styles
+import './Welcome.css'; // Import your existing styles
 
 function Welcome() {
   return (

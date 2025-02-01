@@ -1,8 +1,8 @@
 // NewJob.js
 import React, { useState } from 'react';
 import { Container, Form, Button } from 'react-bootstrap';
-import supabase from '../util/supabase';
-
+import { addNewJob } from '../../util/jobUtils';
+import './NewJob.css';
 const NewJob = () => {
   const [jobData, setJobData] = useState({
     title: '',
@@ -22,21 +22,13 @@ const NewJob = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
-    try {
-      const { data, error } = await supabase.from('jobs').upsert([jobData]);
-
-      if (error) {
-        console.error('Error adding a new job:', error);
-        return;
-      }
-
+    const data = await addNewJob(jobData);
+    if (data) {
       console.log('New job added successfully:', data);
-
-      // Redirect to the job listing page or perform any other action
-    } catch (error) {
-      console.error('Error adding a new job:', error);
+    } else {
+      alert('Failed to add new job. Please try again.');
     }
+
   };
 
   return (

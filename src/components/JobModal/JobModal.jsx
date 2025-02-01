@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Modal, Button } from 'react-bootstrap';
-import supabase from '../util/supabase';
-
+import supabase from '../../util/supabase';
+import './JobModal.css';
 const JobModal = ({ show, onHide, jobId }) => {
   const [jobData, setJobData] = useState(null);
 

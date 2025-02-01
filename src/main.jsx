@@ -4,8 +4,8 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
-import Home from './pages/Home';
-import Welcome from './pages/employer/Welcome';
+import Home from './pages/Home/Home';
+import Welcome from './pages/employer/Welcome/Welcome';
 
 const router = createBrowserRouter([
   {
@@ -13,7 +13,7 @@ const router = createBrowserRouter([
     element: <App />,
     children: [
       {
-        path: "/Search",
+        path: "/",
         element: <Home />,
       },
       { 
