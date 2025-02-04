@@ -1,0 +1,19 @@
+#login-container {
+    text-align: center;
+    margin: 3% auto;
+    padding: 3%;
+    width: 100%;
+    max-width: 400px;
+}
+
+.form-control {
+    background: rgba(0,0,0,.3);
+    border: none;
+    margin: 10px auto;
+}
+
+label {
+    text-decoration: none;
+    background: none;
+    color: #fff;
+}

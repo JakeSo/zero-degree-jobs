@@ -1,13 +1,26 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Navbar, Container, Nav, ToggleButton } from 'react-bootstrap';
 import { Link, useLocation } from 'react-router-dom'
 import './Navbar.css';
+import supabase from '../../util/supabase';
 
 function CustomNavbar() {
 
     const currentPage = useLocation().pathname;
 
     const isEmployer = currentPage.startsWith("/Employer");
+
+    const [user, setUser] = useState(null);
+
+    useEffect(() => {
+        const { data: authListener } = supabase.auth.onAuthStateChange(
+            (event, session) => {
+                setUser(session?.user ?? null);
+            }
+        );
+
+        return () => authListener.subscription.unsubscribe();
+    }, []);
 
     return <Navbar bg="navbar dark-glassy" data-bs-theme="dark" expand="lg">
         <Container fluid>
@@ -37,6 +50,11 @@ function CustomNavbar() {
                     <div className={`slider ${isEmployer ? 'left' : 'right'}`}></div>
                   </div>
                 </Nav>
+                {user ? (
+                  <Nav.Link onClick={() => supabase.auth.signOut()}>Logout</Nav.Link>
+                ) : (
+                  <Nav.Link as={Link} to="/login">Login</Nav.Link>
+                )}
             </Navbar.Collapse>
         </Container>
     </Navbar>
