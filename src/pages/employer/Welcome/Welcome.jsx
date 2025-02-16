@@ -1,46 +1,85 @@
 import React from 'react';
-import { Container, Row, Col, Button } from 'react-bootstrap';
-import './Welcome.css'; // Import your existing styles
+import { 
+  Box,
+  Button,
+  Container,
+  Flex,
+  Heading,
+  Link,
+  List,
+  ListItem,
+  VStack,
+  Text
+} from '@chakra-ui/react';
 
 function Welcome() {
   return (
-    <Container className="mb-5 text-center">
-      <Row className="header">
-        <Col>
-          <h1 className="display-1 my-5">Welcome, Employers!</h1>
-          <h3 className="slogan">Unlock the Potential of Diverse Talent</h3>
-        </Col>
-      </Row>
-      <Row className="why dark-glassy p-lg-5">
-        <h3 className='mb-4'><span className='name fs-1'>zero&deg;</span> is a job board that connects employers with qualified candidates, regardless of their education.</h3>
-        <h3>We put skills before schools to better match dependable candidates to open jobs.</h3>
-      </Row>
-      <Row className="why dark-glassy">
-        <Col className='my-auto text-center' lg={4}>
-          <h1 className='my-3'>Why Go <span className='name'><br />zero&deg;</span>?</h1>
+    <Container maxW="xl" py={10}>
+      <VStack spacing={10} align="center" textAlign="center">
+        {/* Header Section */}
+        <Box>
+          <Heading as="h1" size="2xl" mb={4}>
+            Welcome, Employers!
+          </Heading>
+          <Heading as="h3" size="lg" color="gray.500">
+            Unlock the Potential of Diverse Talent
+          </Heading>
+        </Box>
 
-        </Col>
-        <Col lg={8}>
-          <Container fluid>
-          <ul className='mb-4 stats'>
-            <li>In 2021, The U.S. Census Bureau reported <span className='nunito bold'>55%</span> of adults didn't have a college degree.<sup className='source-link'><a href='https://www.census.gov/data/tables/2021/demo/educational-attainment/cps-detailed-tables.html'>1</a></sup></li>
-            <li>Nearly <span className='nunito bold'>70%</span> of all jobs in the U.S. economy require higher education.<sup className='source-link'><a href='https://opportunityatwork.org/thepaperceiling/'>2</a></sup></li>
-          </ul>
-          </Container>
-          <h4 className='fw-bold'>This "<a href="https://opportunityatwork.org/thepaperceiling">paper ceiling</a>" prevents employers from accessing a large pool of qualified workers, leading to hiring challenges and lost productivity.</h4>
-        </Col>
-      </Row>
+        {/* Mission Section */}
+        <Box className='dark-glassy' p={8} borderRadius="lg" maxW="3xl">
+          <Text fontSize="xl" mb={4}>
+            <Box as="span" fontWeight="bold" fontSize="2xl">zero&deg;</Box> is a job board that connects employers with qualified candidates, regardless of their education.
+          </Text>
+          <Text fontSize="xl">
+            We put skills before schools to better match dependable candidates to open jobs.
+          </Text>
+        </Box>
 
-      <Row className="why dark-glassy text-center">
-        <Col className='my-auto'>
-          <h1>Shred the Paper Ceiling</h1>
-          {/* TODO: Link login/signup page */}
-          <Button className='my-3 fs-3' variant='outline-secondary'>
+        {/* Stats Section */}
+        <Flex 
+          direction={{ base: 'column', lg: 'row' }} 
+          className='dark-glassy'
+          p={8} 
+          borderRadius="lg"
+          gap={8}
+        >
+          <Box flex={1}>
+            <Heading as="h1" size="xl" mb={4}>
+              Why Go <Box as="span">zero&deg;</Box>?
+            </Heading>
+          </Box>
+          <Box flex={2}>
+            <List.Root spacing={4} fontSize="lg" textAlign={'left'}>
+              <List.Item>
+                In 2021, The U.S. Census Bureau reported <Box as="span" fontWeight="bold">55%</Box> of adults didn't have a college degree.
+                <Link href="https://www.census.gov/data/tables/2021/demo/educational-attainment/cps-detailed-tables.html" isExternal ml={1}>[1]</Link>
+              </List.Item>
+              <List.Item>
+                Nearly <Box as="span" fontWeight="bold">70%</Box> of all jobs in the U.S. economy require higher education.
+                <Link href="https://opportunityatwork.org/thepaperceiling" isExternal  ml={1}>[2]</Link>
+              </List.Item>
+            </List.Root>
+            <Text mt={4} fontWeight="bold">
+              This <Link href="https://opportunityatwork.org/thepaperceiling" isExternal >"paper ceiling"</Link> prevents employers from accessing a large pool of qualified workers, leading to hiring challenges and lost productivity.
+            </Text>
+          </Box>
+        </Flex>
+
+        {/* Call to Action Section */}
+        <Box className='dark-glassy' p={8} borderRadius="lg" textAlign="center">
+          <Heading as="h1" size="xl" mb={6}>
+            Shred the Paper Ceiling
+          </Heading>
+          <Button 
+            size="lg" 
+            variant="outline"
+            // TODO: Link login/signup page
+          >
             Post Your Job
           </Button>
-        </Col>
-      </Row>
-
+        </Box>
+      </VStack>
     </Container>
   );
 }

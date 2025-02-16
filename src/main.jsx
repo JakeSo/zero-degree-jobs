@@ -1,6 +1,5 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import 'bootstrap/dist/css/bootstrap.min.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
@@ -9,6 +8,8 @@ import Home from './pages/Home/Home';
 import Welcome from './pages/employer/Welcome/Welcome';
 import Login from './pages/Login/Login';
 import AuthCallback from './pages/AuthCallback/AuthCallback';
+import { Provider } from './components/ui/provider';
+
 
 const router = createBrowserRouter([
   {
@@ -27,10 +28,10 @@ const router = createBrowserRouter([
         path: "/Employer/Welcome", 
         element: <Welcome /> 
       },
-      {
-        path: "/login",
-        element: <Login />,
-      },
+      // {
+      //   path: "/login",
+      //   element: <Login />,
+      // },
       {
         path: "/auth/callback",
         element: <AuthCallback />,
@@ -42,7 +43,9 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <GoogleOAuthProvider clientId='614958260904-f7c9aqfgcc0em6p4d9fgemnagtl2lf9o.apps.googleusercontent.com'>
     <React.StrictMode>
-      <RouterProvider router={router} />
+      <Provider>
+        <RouterProvider router={router} />
+      </Provider>    
     </React.StrictMode>
   </GoogleOAuthProvider>
 );

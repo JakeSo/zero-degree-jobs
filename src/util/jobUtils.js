@@ -40,3 +40,19 @@ export const addNewJob = async (jobData) => {
     return null;
   }
 }
+
+export const fetchJobData = async (jobId) => {
+  if (!jobId) return
+  
+  try {
+    const { data, error } = await supabase
+      .from('jobs')
+      .select('*')
+      .eq('job_id', jobId)
+      .single()
+
+    return data;
+  } catch (error) {
+    console.error('Error fetching job data:', error)
+  }
+}
