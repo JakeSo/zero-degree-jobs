@@ -1,8 +1,8 @@
 import React from 'react';
 import { Outlet } from 'react-router-dom';
 import { Container } from '@chakra-ui/react'; 
-import CustomNavbar from './components/Navbar/Navbar';
-import Footer from './components/Footer/Footer';
+import CustomNavbar from './components/Navbar';
+import Footer from './components/Footer';
 import './App.css';
 
 function App() {

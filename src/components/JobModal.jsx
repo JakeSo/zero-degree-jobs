@@ -7,10 +7,10 @@ import {
   DialogTitle,
   DialogCloseTrigger,
   DialogBackdrop
-} from '../../components/ui/dialog'
+} from '../components/ui/dialog'
 import { Button, Skeleton, Text, Box } from '@chakra-ui/react'
 import { useEffect, useState } from 'react'
-import { fetchJobData } from '../../util/jobUtils'
+import { fetchJobData } from '../util/jobUtils'
 const JobModal = ({ jobId }) => {
   const [jobData, setJobData] = useState(null)
 

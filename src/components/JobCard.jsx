@@ -1,17 +1,17 @@
 import { Card, Heading, Text, Skeleton, DialogTrigger,DialogRoot } from '@chakra-ui/react';
 import { useState } from 'react';
-import JobModal from '../JobModal/JobModal';
+import JobModal from './JobModal';
 
 const JobCard = ({ job }) => {
   const [open, setOpen] = useState(false)
   const daysSincePosted = Math.floor((new Date() - new Date(job.date_posted)) / (1000 * 60 * 60 * 24));
   // console.dir(job)
   return (
-    <DialogRoot lazyMount open={open} onOpenChange={(e) => setOpen(e.open)}>
+    <DialogRoot lazyMount open={open} onOpenChange={(e) => job.title && setOpen(e.open)}>
     <DialogTrigger>
       <Card.Root
-        bg="rgba(32, 58, 67, 0.8)"
-        border="brand.200 solid"
+        bg={"brand.200"}
+        borderColor={"brand.300"}
         color="gray.200"
         transition="all 0.3s cubic-bezier(0.155, 1.105, 0.295, 1.12)"
         _hover={{

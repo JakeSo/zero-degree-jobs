@@ -1,14 +1,31 @@
-import { Flex, Box, Button, Link, useDisclosure } from '@chakra-ui/react';
+import { Flex, Box, Button, IconButton, useDisclosure } from '@chakra-ui/react';
+import { FaBars } from 'react-icons/fa';
+import { SegmentedControl } from './ui/segmented-control';
 import { Link as RouterLink, useLocation } from 'react-router-dom';
-import supabase from '../../util/supabase';
+import supabase from '../util/supabase';
 import { useState, useEffect } from 'react';
-import Login from '../../pages/Login/Login';
+import Login from '../pages/Login/Login';
 
-function CustomNavbar() {
+
+const LINKS = [{
+  label: "About",
+  path: "/About"
+},
+{
+  label: "Search",
+  path: "/Search"
+},
+{
+  label: "Your Profile",
+  path: "/Profile"
+}]
+
+
+
+function Navbar() {
   const { pathname } = useLocation();
   const { isOpen, onToggle } = useDisclosure();
-  const isEmployer = pathname.startsWith("/Employer");
-
+  console.log("isOpen", isOpen)
   const [user, setUser] = useState(null);
 
     useEffect(() => {
@@ -34,24 +51,25 @@ function CustomNavbar() {
       alignItems="center"
       justifyContent="space-between"
     >
-      <Box display={{ base: 'block', lg: 'none' }} onClick={onToggle}>
-        <Button variant="ghost">☰</Button>
-      </Box>
+        <IconButton display={{ md: 'none' }} aria-label="Open menu" variant={'ghost'} onClick={onToggle}>
+          <FaBars />
+        </IconButton>
 
       <Flex
-        display={{ base: isOpen ? 'flex' : 'none', lg: 'flex' }}
-        direction={{ base: 'column', lg: 'row' }}
+        display={{ base: 'none', md: 'flex' }}
         gap={6}
         alignItems="center"
         flex={1}
       >
-        <NavLink to="/About" isActive={pathname === "/About"}>About</NavLink>
-        <NavLink to="/Search" isActive={pathname === "/Search"}>Search</NavLink>
-        <NavLink to="/Profile" isActive={pathname === "/Profile"}>Your Profile</NavLink>
+        {LINKS.map(({ label, path }) => (
+          <NavLink key={path} to={path} isActive={pathname === path}>
+            {label}
+          </NavLink>
+        ))}
       </Flex>
 
       <Flex align="center" gap={4}>
-        <Flex
+        {/* <Flex
           position="relative"
           className='dark-glassy'
           borderRadius="md"
@@ -72,13 +90,33 @@ function CustomNavbar() {
             left={isEmployer ? '0' : '50%'}
             top="0"
           />
-        </Flex>
+        </Flex> */}
+        <SegmentedControl 
+          size={"lg"} 
+          defaultValue="Seeker"
+          value={window.location.pathname.startsWith("/Employer") ? "Employer" : "Seeker"} 
+          items={[{
+            value:"Employer",
+            label: (<RouterLink to="/Employer/Welcome">Employer</RouterLink>)
+          },{
+            value: "Seeker",
+            label: <RouterLink to="/" >Seeker</RouterLink>
+          }]} />
         {user ? (
           <Button variant="ghost" onClick={() => supabase.auth.signOut()}>Logout</Button>
         ) : (
           <Login />
         )}
       </Flex>
+      {isOpen ? (
+          <Box pb={4} display={{ md: 'none' }}>
+            <Stack as={'nav'} spacing={4}>
+              {LINKS.map(({label, path}) => (
+                <NavLink to={path} key={path}>{label}</NavLink>
+              ))}
+            </Stack>
+          </Box>
+        ) : null}
     </Flex>
   );
 }
@@ -97,4 +135,4 @@ const NavLink = ({ to, children, isActive, ...otherProps }) => (
   </Button>
 );
 
-export default CustomNavbar;
+export default Navbar;

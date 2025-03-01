@@ -47,7 +47,6 @@ main {
   text-align: center;
   color: white;
   display: flex;
-  min-height: calc(100vh-120px);
   padding-top: 80px;
   padding-bottom: 80px;
   flex-direction: column;
@@ -77,14 +76,3 @@ button,
   font-family: "Nunito", sans-serif;
 }
 
-.btn-outline-secondary {
-  color: white !important;
-  border-color: white !important;
-}
-
-.btn-outline-secondary:active {
-  background-color: #fff !important;
-  color: #000 !important;
-  transform: scale(0.95);
-
-}

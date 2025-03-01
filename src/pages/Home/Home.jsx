@@ -1,21 +1,18 @@
 'use client';
-import { useState, useEffect } from 'react';
 import { 
   Heading,
   Button,
-  SimpleGrid,
   VStack,
-  HStack,
+  Stack,
   Input,
-  Container,
   Text
 } from '@chakra-ui/react';
 import { Field } from '../../components/ui/field';
-import JobCard from '../../components/JobCard/JobCard';
-import { fetchNewJobListings } from '../../util/jobUtils';
 import { useForm } from 'react-hook-form';
 import { z } from 'zod';
 import { zodResolver } from '@hookform/resolvers/zod';
+import JobsSection from '../../components/NewJobsSection';
+import { fetchNewJobListings } from '../../util/jobUtils';
 
 const formSchema = z.object({
   jobType: z.string().min(1, 'Job type is required'),
@@ -23,7 +20,6 @@ const formSchema = z.object({
 });
 
 export default function Home() {
-  const [newJobs, setNewJobs] = useState([]);
 
   const { 
     register,
@@ -33,17 +29,6 @@ export default function Home() {
     resolver: zodResolver(formSchema)
   });
 
-  useEffect(() => {
-    const loadJobListings = async () => {
-      try {
-        const listings = await fetchNewJobListings();
-        setNewJobs(listings);
-      } catch (error) {
-        console.error('Failed to load jobs:', error);
-      }
-    };
-    loadJobListings();
-  }, []);
 
   const onSubmit = (data) => {
     console.log('Job search:', data);
@@ -53,26 +38,29 @@ export default function Home() {
     <VStack spacing={0} align="stretch">
       <VStack 
         as="header" 
-        py={20} 
+        pt={20} 
+        pb={[0,20]}
         // bg="bg.subtle"
         spacing={6}
         px={4}
       >
-        <Heading as="h1" size={["2xl","7xl"]} >
+        <Heading fontFamily={"Nunito"} as="h1" size={["5xl","7xl"]} >
           zero°
         </Heading>
         <Heading as="h2" size={["md","lg","xl", "2xl"]} textStyle="heading.lg" color="fg.muted" mb={10}>
           Connecting Talent, <strong>Ignoring Degrees</strong>
         </Heading>
 
-        <HStack 
+        <Stack 
           as="form" 
           onSubmit={handleSubmit(onSubmit)} 
           flex={"1 0 auto"}
-          w="auto"
-          spacing={2}
+          w={["3/4","auto"]}
+          justifyContent={'center'}
+          gap={2}
+          direction={["column", "row"]}
         >
-          <Text fontSize={["md","lg","2xl"]} whiteSpace="nowrap">
+          <Text fontSize={["lg","2xl"]} whiteSpace="nowrap">
             I am looking for a
           </Text>
 
@@ -83,17 +71,17 @@ export default function Home() {
               borderBottom="2px dashed"
               borderRadius="2"
               className='dark-glassy'
-              fontSize={["sm","md","lg"]}
+              fontSize={["md","lg"]}
+              textAlign={'center'}
               px="2"
               py="1"
               _placeholder={{ color: "fg.subtle", opacity: 0.8 }}
               {...register('jobType')}
-              textAlign="center"
               maxWidth="none"
             />
           </Field>
 
-          <Text fontSize={["md","lg","2xl"]} mx={'2'} whiteSpace="nowrap" flexShrink={0} flex="0 0 auto">
+          <Text fontSize={["lg","2xl"]} mx={'2'} whiteSpace="nowrap" flexShrink={0} flex="0 0 auto">
             job in
           </Text>
 
@@ -104,7 +92,7 @@ export default function Home() {
               borderBottom="2px dashed"
               borderRadius="2"
               className='dark-glassy'
-              fontSize={["sm","md","lg"]}
+              fontSize={["md","lg"]}
               px="2"
               py="1"
               _placeholder={{ color: "fg.subtle", opacity: 0.8 }}
@@ -117,30 +105,22 @@ export default function Home() {
           <Button 
             type="submit"
             size={["sm","lg"]}
+            w={['full', 'inherit']}
             variant="subtle"
             className='dark-glassy'
             bg={ {_hover: 'gray.900'} }
             alignSelf="center"
-            ml={4}
+            ml={[0,4]}
           >
             Search
           </Button>
-        </HStack>
+        </Stack>
       </VStack>
 
-      <Container w={"80%"} maxW="breakpoint-2xl" py={10} px={4}>
-        <Heading as="h3" size={["lg","xl","3xl"]} mb={6} textStyle="heading.xl">
-          New postings
-        </Heading>
-        <SimpleGrid columns={[1, 2, 3, 4]} gap={6}>
-          {newJobs.map((job) => (
-            <JobCard key={job.job_id} job={job} />
-          ))}
-          {Array.from({ length: Math.max(0, 4 - newJobs.length) }).map((_, i) => (
-            <JobCard key={`placeholder-${i}`} job={{}} />
-          ))}
-        </SimpleGrid>
-      </Container>
+
+      {/*New Jobs*/}
+      <JobsSection title={"New postings"} resolver={fetchNewJobListings} />
+      
     </VStack>
   );
 }

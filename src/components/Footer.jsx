@@ -1,4 +1,4 @@
-import { Box, Container, Text, HStack } from '@chakra-ui/react';
+import { Box, Text, HStack } from '@chakra-ui/react';
 
 export default function Footer() {
   
@@ -11,9 +11,8 @@ export default function Footer() {
       bottom="0"
       left="0"
       right="0"
-      borderTopWidth="1px"
       zIndex="sticky"
-      padding="10px"
+      padding="10 px"
     >
       <HStack
         w={"100%"}
@@ -22,10 +21,10 @@ export default function Footer() {
         py={4}
         textAlign="center"
       >
-        <Text fontSize="sm">
+        <Text fontSize={["xs","sm"]}>
           &copy; {new Date().getFullYear()} zero&deg;. All Rights Reserved.
         </Text>
-        <Text fontSize={"sm"}>
+        <Text fontSize={["xs","sm"]}>
           <a href='https://www.tearthepaperceiling.org/'>#TearThePaperCeiling</a>
         </Text>
       </HStack>
