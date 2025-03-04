@@ -31,6 +31,7 @@ export default function Home() {
 
 
   const onSubmit = (data) => {
+    alert("Yet to be implemented")
     console.log('Job search:', data);
   };
 

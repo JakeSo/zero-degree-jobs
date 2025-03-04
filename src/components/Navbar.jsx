@@ -1,10 +1,11 @@
-import { Flex, Box, Button, IconButton, useDisclosure } from '@chakra-ui/react';
-import { FaBars } from 'react-icons/fa';
+import { Flex, Box, Button, IconButton, Stack } from '@chakra-ui/react';
+import { faBars, faAnglesUp } from '@fortawesome/free-solid-svg-icons';
 import { SegmentedControl } from './ui/segmented-control';
 import { Link as RouterLink, useLocation } from 'react-router-dom';
 import supabase from '../util/supabase';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, memo } from 'react';
 import Login from '../pages/Login/Login';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 
 const LINKS = [{
@@ -22,11 +23,16 @@ const LINKS = [{
 
 
 
-function Navbar() {
+const Navbar = memo(function Navbar() {
   const { pathname } = useLocation();
-  const { isOpen, onToggle } = useDisclosure();
-  console.log("isOpen", isOpen)
+  const [ isOpen, setIsOpen ] = useState(null);
   const [user, setUser] = useState(null);
+
+  useEffect(() => {
+    setIsOpen(false);
+  }, [pathname]);
+
+  const toggleOpen = () => setIsOpen(currState => !currState)
 
     useEffect(() => {
         const { data: authListener } = supabase.auth.onAuthStateChange(
@@ -50,9 +56,10 @@ function Navbar() {
       backdropFilter="blur(10px)"
       alignItems="center"
       justifyContent="space-between"
+      flexWrap={{base: 'wrap', md: 'nowrap'}}
     >
-        <IconButton display={{ md: 'none' }} aria-label="Open menu" variant={'ghost'} onClick={onToggle}>
-          <FaBars />
+        <IconButton display={{ md: 'none' }} aria-label="Open menu" variant={'ghost'} onClick={toggleOpen}>
+          {isOpen ? <FontAwesomeIcon icon={faAnglesUp} /> :  <FontAwesomeIcon icon={faBars} /> }
         </IconButton>
 
       <Flex
@@ -109,17 +116,17 @@ function Navbar() {
         )}
       </Flex>
       {isOpen ? (
-          <Box pb={4} display={{ md: 'none' }}>
-            <Stack as={'nav'} spacing={4}>
+          <Box w={'full'} pt={4} display={{ md: 'none' }}>
+            <Stack display={'flex'} justifyContent={'center'} spacing={4}>
               {LINKS.map(({label, path}) => (
-                <NavLink to={path} key={path}>{label}</NavLink>
+                <NavLink w={'full'} to={path} key={path}>{label}</NavLink>
               ))}
             </Stack>
           </Box>
         ) : null}
     </Flex>
   );
-}
+});
 
 const NavLink = ({ to, children, isActive, ...otherProps }) => (
   <Button

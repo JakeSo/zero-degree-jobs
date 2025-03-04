@@ -59,7 +59,7 @@ const Login = () => {
             <DrawerTrigger asChild>
                 <Button variant={'ghost'}>Login</Button>
             </DrawerTrigger>
-            <DrawerContent bg={'brand.200'} offset={8} rounded="md">
+            <DrawerContent bg={'brand.200'} h={"sm"} offset={8} rounded="md">
                 <DrawerCloseTrigger />
                 <DrawerHeader>
                     <DrawerTitle as={'h2'} fontSize={'2xl'} mb={6}>Login to zero°</DrawerTitle>
