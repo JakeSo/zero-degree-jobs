@@ -9,7 +9,6 @@ import AuthCallback from './pages/AuthCallback/AuthCallback';
 import { Provider } from './components/ui/provider';
 import ErrorPage from './pages/ErrorPage';
 
-
 const router = createBrowserRouter([
   {
     path: "/",
