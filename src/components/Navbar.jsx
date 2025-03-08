@@ -8,10 +8,7 @@ import Login from '../pages/Login/Login';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 
-const LINKS = [{
-  label: "About",
-  path: "/About"
-},
+const LINKS = [
 {
   label: "Search",
   path: "/Search"

@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { FaGoogle } from 'react-icons/fa';
+import { faGoogle } from '@fortawesome/free-brands-svg-icons';
 import {
     Button,
     Input,
@@ -19,6 +19,7 @@ import {
 } from "../../components/ui/drawer";
 
 import supabase from '../../util/supabase';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 const Login = () => {
     const navigate = useNavigate();
@@ -57,9 +58,9 @@ const Login = () => {
         >
             <DrawerBackdrop />
             <DrawerTrigger asChild>
-                <Button variant={'ghost'}>Login</Button>
+                <Button fontFamily={'Raleway'} variant={'ghost'}>Login</Button>
             </DrawerTrigger>
-            <DrawerContent bg={'brand.200'} h={"sm"} offset={8} rounded="md">
+            <DrawerContent bg={'brand.200'} h={"md"} offset={8} rounded="md">
                 <DrawerCloseTrigger />
                 <DrawerHeader>
                     <DrawerTitle as={'h2'} fontSize={'2xl'} mb={6}>Login to zero°</DrawerTitle>
@@ -85,20 +86,24 @@ const Login = () => {
                         </Field>
                         <Button
                             type="submit"
-                            colorScheme="blue"
                             width="full"
                         >
                             Login with Email
                         </Button>
                         <Button
-                            variant="ghost"
+                            variant="outline"
+                            borderColor={'white'}
                             onClick={() => handleOAuthLogin('google')}
                             width="full"
-                            colorScheme="gray"
                         >
-                            <FaGoogle />
+                            <FontAwesomeIcon icon={faGoogle} />
                             Continue with Google
                         </Button>
+                        <Button
+                            variant={'ghost'}
+                            width={'full'}
+                            onClick={() => alert('Not implemented :(')}
+                        >Sign Up</Button>
                     </VStack>
                 </DrawerBody>
             </DrawerContent>
