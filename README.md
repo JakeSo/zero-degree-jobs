@@ -4,6 +4,7 @@ Zero° Job Board is a web application that connects job seekers with job opportu
 
 ## Table of Contents
 
+- [Demo](#demo)
 - [Features](#features)
   - [For Job Seekers](#for-job-seekers)
   - [For Employers](#for-employers)
@@ -14,6 +15,10 @@ Zero° Job Board is a web application that connects job seekers with job opportu
 - [Usage](#usage)
 - [Contributing](#contributing)
 - [License](#license)
+
+## Demo
+
+The app can be previewed here: [Vercel](https://zero-degree-jobs.vercel.app/)
 
 ## Features
 
