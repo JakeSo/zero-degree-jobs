@@ -8,7 +8,7 @@ import Login from './pages/Login/Login';
 import AuthCallback from './pages/AuthCallback/AuthCallback';
 import { Provider } from './components/ui/provider';
 import ErrorPage from './pages/ErrorPage';
-
+import JobSearch from './pages/JobSearch/JobSearch';
 const router = createBrowserRouter([
   {
     path: "/",
