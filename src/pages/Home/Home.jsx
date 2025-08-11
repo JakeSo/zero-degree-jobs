@@ -31,8 +31,7 @@ export default function Home() {
 
 
   const onSubmit = (data) => {
-    alert("Yet to be implemented")
-    console.log('Job search:', data);
+    window.location.href = `/job-search?jobType=${encodeURIComponent(data.jobType)}&location=${encodeURIComponent(data.location)}`;
   };
 
   return (
@@ -58,6 +57,7 @@ export default function Home() {
           flex={"1 0 auto"}
           w={["3/4","auto"]}
           justifyContent={'center'}
+          alignItems={'center'}
           gap={2}
           direction={["column", "row"]}
         >
