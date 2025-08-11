@@ -27,6 +27,16 @@ const router = createBrowserRouter([
         path: "/Employer/Welcome", 
         element: <Welcome /> 
       },
+      {
+        path: "/job-search",
+        element: <JobSearch />,
+        loader: async ({ request }) => {
+          const url = new URL(request.url);
+          const jobType = url.searchParams.get('jobType') || '';
+          const location = url.searchParams.get('location') || '';
+          return { jobType, location };
+        }
+      },
       // {
       //   path: "/login",
       //   element: <Login />,
