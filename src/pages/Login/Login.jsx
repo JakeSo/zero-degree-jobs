@@ -102,7 +102,7 @@ const Login = () => {
                         <Button
                             variant={'ghost'}
                             width={'full'}
-                            onClick={() => alert('Not implemented :(')}
+                            onClick={() => navigate('/signup')}
                         >Sign Up</Button>
                     </VStack>
                 </DrawerBody>

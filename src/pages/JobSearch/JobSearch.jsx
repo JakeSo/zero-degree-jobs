@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import { Container, VStack, Heading, Input, Button, Checkbox, Stack, Box } from '@chakra-ui/react';
-import JobListItem from '../../components/JobListItem';
-import JobDetailsPane from '../../components/JobDetailsPane';
+// import JobListItem from '../../components/JobListItem';
+// import JobDetailsPane from '../../components/JobDetailsPane';
 import { useLoaderData } from 'react-router-dom';
 const JobSearch = () => {
+    const { jobType, location } = useLoaderData();
     const [searchParams, setSearchParams] = useState({ title: '', location: '', remote: false });
     const [selectedJob, setSelectedJob] = useState(null);
     const [jobResults, setJobResults] = useState([]);
-    const { jobType, location } = useLoaderData();
     const handleSearch = () => {
         // Mock search logic
         const mockResults = [
@@ -39,12 +39,12 @@ const JobSearch = () => {
                         value={searchParams.location}
                         onChange={(e) => setSearchParams({ ...searchParams, location: e.target.value })}
                     />
-                    <Checkbox
-                        isChecked={searchParams.remote}
-                        onChange={(e) => setSearchParams({ ...searchParams, remote: e.target.checked })}
-                    >
-                        Remote
-                    </Checkbox>
+                    <Checkbox.Root value={searchParams.remote} onChange={(e) => setSearchParams({ ...searchParams, remote: e.target.checked })}>
+                        <Checkbox.HiddenInput />
+                        <Checkbox.Control />
+                        <Checkbox.Label>Remote</Checkbox.Label>
+                    </Checkbox.Root>
+        
                     <Button onClick={handleSearch}>Search</Button>
                 </Stack>
                 <Box>

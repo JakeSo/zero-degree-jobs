@@ -8,7 +8,23 @@ function AuthCallback() {
   useEffect(() => {
     supabase.auth.onAuthStateChange(async (event, session) => {
       if (event === 'SIGNED_IN') {
-        navigate('/');
+        //Check if new user
+        const user = session.user;
+        if (!user) {
+          console.error('No user found in session');
+          return;
+        }
+        const { data: profile } = await supabase
+          .from('user_profile')
+          .select('*')
+          .eq('id', user.user.id)
+          .single();
+        if (!profile) {
+          // Redirect to sign-up if no profile exists
+          navigate('/signup');
+        } else {
+          navigate('/');
+        }
       }
     });
   }, [navigate]);

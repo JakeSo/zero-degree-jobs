@@ -9,6 +9,7 @@ import AuthCallback from './pages/AuthCallback/AuthCallback';
 import { Provider } from './components/ui/provider';
 import ErrorPage from './pages/ErrorPage';
 import JobSearch from './pages/JobSearch/JobSearch';
+import SignUp from './pages/SignUp/SignUp';
 const router = createBrowserRouter([
   {
     path: "/",
@@ -37,10 +38,10 @@ const router = createBrowserRouter([
           return { jobType, location };
         }
       },
-      // {
-      //   path: "/login",
-      //   element: <Login />,
-      // },
+      {
+        path: "/signup",
+        element: <SignUp />,
+      },
       {
         path: "/auth/callback",
         element: <AuthCallback />,

@@ -3,8 +3,8 @@ import supabase from './supabase';
 export const fetchNewJobListings = async () => {
   try {
     const { data: newJobs, error } = await supabase
-      .from('jobs')
-      .select('job_id,title,location,company, date_posted')
+      .from('job_posting')
+      .select('job_id,job_title,location,company, date_posted')
       .gte('date_posted', new Date(new Date() - 30 * 24 * 60 * 60 * 1000).toISOString());
     if (error) throw error;
     return newJobs;
@@ -56,3 +56,33 @@ export const fetchJobData = async (jobId) => {
     console.error('Error fetching job data:', error)
   }
 }
+
+export const createUserProfile = async (profileData) => {
+  try {
+    const { data, error } = await supabase
+      .from('user_profile')
+      .insert(profileData);
+
+    if (error) throw error;
+    return data;
+  } catch (error) {
+    console.error('Error creating user profile:', error);
+    return null;
+  }
+}
+
+export const fetchCompanies = async (query) => {
+  try {
+    const { data, error } = await supabase
+      .from('company')
+      .select('name')
+      .ilike('name', `%${query}%`)
+      .limit(10); 
+
+    if (error) throw error;
+    return data.map((company) => company.company_name);
+  } catch (error) {
+    console.error('Error fetching companies:', error);
+    return [];
+  }
+};

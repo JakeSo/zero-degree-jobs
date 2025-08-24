@@ -8,7 +8,7 @@ const JobsSection = ({title, resolver}) => {
     useEffect(() => {
         const loadJobListings = async () => {
           try {
-            const listings = await resolver();
+            const listings = await fetchNewJobListings()
             setNewJobs(listings);
           } catch (error) {
             console.error('Failed to load jobs:', error);
