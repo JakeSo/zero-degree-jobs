@@ -5,7 +5,7 @@
   "type": "module",
   "private": true,
   "dependencies": {
-    "@chakra-ui/react": "^3.7.0",
+    "@chakra-ui/react": "^3.25.0",
     "@emotion/react": "^11.14.0",
     "@emotion/styled": "^11.14.0",
     "@fortawesome/fontawesome-svg-core": "^6.7.2",

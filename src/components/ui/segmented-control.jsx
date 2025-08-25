@@ -16,8 +16,8 @@ export const SegmentedControl = React.forwardRef(
     const data = React.useMemo(() => normalize(items), [items])
 
     return (
-      <SegmentGroup.Root bgColor={"brand.300"} ref={ref} {...rest}>
-        <SegmentGroup.Indicator bgColor={"brand.100"}  />
+      <SegmentGroup.Root bgColor={"brand.600"} ref={ref} {...rest}>
+        <SegmentGroup.Indicator bgColor={"brand.300"}  />
         <For each={data}>
           {(item) => (
             <SegmentGroup.Item
