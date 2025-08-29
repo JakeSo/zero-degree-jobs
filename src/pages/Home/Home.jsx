@@ -13,6 +13,7 @@ import { z } from 'zod';
 import { zodResolver } from '@hookform/resolvers/zod';
 import JobsSection from '../../components/NewJobsSection';
 import { fetchNewJobListings } from '../../util/jobUtils';
+import { useNavigate } from 'react-router-dom';
 
 const formSchema = z.object({
   jobType: z.string().min(1, 'Job type is required'),
@@ -31,8 +32,7 @@ export default function Home() {
 
 
   const onSubmit = (data) => {
-    alert("Yet to be implemented")
-    console.log('Job search:', data);
+    window.location.href = `/job-search?jobType=${encodeURIComponent(data.jobType)}&location=${encodeURIComponent(data.location)}`;
   };
 
   return (

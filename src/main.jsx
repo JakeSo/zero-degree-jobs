@@ -8,6 +8,8 @@ import Login from './pages/Login/Login';
 import AuthCallback from './pages/AuthCallback/AuthCallback';
 import { Provider } from './components/ui/provider';
 import ErrorPage from './pages/ErrorPage';
+import JobSearch from './pages/JobSearch/JobSearch';
+import EmployerSignup from './pages/employer/Signup/EmployerSignup';
 
 const router = createBrowserRouter([
   {
@@ -20,6 +22,16 @@ const router = createBrowserRouter([
         element: <Home />,
       },
       {
+        path: "/job-search",
+        element: <JobSearch />,
+        loader: async ({ request }) => {
+          const url = new URL(request.url);
+          const jobType = url.searchParams.get('jobType') || '';
+          const location = url.searchParams.get('location') || '';
+          return { jobType, location };
+        },
+      },
+      {
         path: "/Login",
         element: <Login />
       },
@@ -27,10 +39,10 @@ const router = createBrowserRouter([
         path: "/Employer/Welcome", 
         element: <Welcome /> 
       },
-      // {
-      //   path: "/login",
-      //   element: <Login />,
-      // },
+      {
+        path: "/employer/signup",
+        element: <EmployerSignup />
+      },
       {
         path: "/auth/callback",
         element: <AuthCallback />,
