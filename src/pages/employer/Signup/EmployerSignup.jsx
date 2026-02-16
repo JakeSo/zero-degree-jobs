@@ -23,8 +23,11 @@ import {
   Steps, // <-- add Steps import
 } from "@chakra-ui/react";
 import { useForm, Controller } from "react-hook-form";
-import { z } from "zod";
+import { z } from "zod/v4";
 import { zodResolver } from "@hookform/resolvers/zod";
+import { supabase } from "../../../util/supabase";
+import { signUpUser } from "../../../util/userUtils";
+import { createCompanyProfile } from "../../../util/companyUtils";
 
 // Form validation schema
 const employerSignupSchema = z
@@ -37,7 +40,7 @@ const employerSignupSchema = z
       .string()
       .optional()
       .refine(
-        (val) => !val || val === "" || z.string().url().safeParse(val).success,
+        (val) => !val || val === "" || z.httpUrl().safeParse("https://" + val).success,
         "Please enter a valid website URL"
       ),
     companyDescription: z
@@ -570,7 +573,26 @@ const EmployerSignupWizard = () => {
       console.log("Form submitted:", data);
       // Here you would typically:
       // 1. Create user account with Supabase Auth
+      const user = signUpUser(data.email, data.password, {
+        full_name: `${data.firstName} ${data.lastName}`
+      });
+      if (!user) {
+        throw new Error("Failed to create user account");
+      }
       // 2. Store company and representative information in database
+      const company = createCompanyProfile(
+        data.companyName,
+        data.companyDescription,
+        data.companyWebsite,
+        data.industry
+      );
+
+      if (!company) {
+        throw new Error("Failed to create company profile");
+      }
+
+      //TODO: Add employer record linking user and company
+
       // 3. Send verification email
       // 4. Redirect to dashboard or verification page
 
